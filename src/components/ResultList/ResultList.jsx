@@ -1,7 +1,6 @@
 import "./ResultList.css";
 
 const ResultList = ({ result }) => {
-    console.log(result);
   return (
     <table className={"u-full-width"}>
       <thead>
