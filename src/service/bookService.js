@@ -1,9 +1,7 @@
 class Book {
-  constructor() {
-    this.title = "";
-    this.author = "";
-    this.isbn = "";
-  }
+  title = "";
+  author = "";
+  isbn = "";
 }
 
 class Result {
@@ -32,7 +30,7 @@ class BookService {
   };
 
   save = (book) => {
-    if (!book.title || !book.author || !book.isbn) {
+    if (!this.#valid(book)) {
       return Result.error("Please fill out all inputs before submitting!");
     }
 
@@ -48,6 +46,8 @@ class BookService {
   };
 
   list = () => JSON.parse(localStorage.getItem(BOOK_LIST_KEY)) || [];
+
+  #valid = (book) => book.title && book.author && book.isbn;
 }
 
 const bookService = new BookService();

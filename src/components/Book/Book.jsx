@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Form from "../Form/Form";
 import bookService from "../../service/bookService";
 import ResultList from "../ResultList/ResultList";
+import Alert from "../Alert/Alert";
 
 const Book = () => {
   //alert state
@@ -34,7 +35,7 @@ const Book = () => {
 
   return (
     <div className="container">
-      {alert.show && <h2 className={alert.type}> {alert.message}</h2>}
+      <Alert alert={alert} />
       <h1>Add Book</h1>
       <Form book={book} updateBook={updateBook} addBook={submitBook} />
       <ResultList result={result} />
